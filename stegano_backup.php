@@ -104,26 +104,16 @@ switch ($_GET['type']) {
             "original_file" => $fileName,
             "type" => "encode"
         ];
-
         $result = create($input, $conn, "stegano");
-        $history = create([
-            "users_id" => $_POST['users_id'],
-            "stegano_id" => $conn->insert_id,
-            "date" => date("Y-m-d")
-        ], $conn, "history");
         header("Content-Type: application/json");
         echo json_encode(
-            ["message" => "Sukses", 'status' => $result, "filename" => $fileName]
+            ["message" => "Sukses", 'status' => $result]
         );
         break;
     case "show":
-        $file = binary($_FILES["mp3"]["tmp_name"]);
+        $file = binary("steganofile/618dfaf50a8a4061326.mp3");
         $output = showSecretMessage($file);
         $output = binaryToString($output);
-        header("Content-Type: application/json");
-        $result = Passaaa(explode("|", $output)[0], "dec", $_POST['password']);
-        echo json_encode(
-            ["message" => !empty($result) ? $result : "Password tidak sesuai!", 'status' => !empty($result)]
-        );
+        echo Passaaa(explode("|", $output)[0], "dec", "google123");
         break;
 }
