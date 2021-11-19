@@ -91,6 +91,15 @@ function Passaaa($request, $type, $password)
 $uniq = uniqid() . date("hsi");
 switch ($_GET['type']) {
     case "hide":
+        header("Content-Type: application/json");
+        $inputFilter = array_filter($_POST);
+        $inputFilter = array_keys($inputFilter);
+        if (!empty(array_diff(["mp3", "secret_message", "password", "users_id"], $inputFilter))) {
+            echo json_encode(
+                ["message" => "Mohon lengkapi Data!", 'status' => false, "filename" => null]
+            );
+            return;
+        }
         $fileName = $uniq . ".mp3";
         file_put_contents('uploads/' . $fileName, base64_decode($_POST['mp3']));
         $secretMessage = stringToBinary(Passaaa($_POST['secret_message'], "en", $_POST['password']) . "|");
@@ -111,7 +120,6 @@ switch ($_GET['type']) {
             "stegano_id" => $conn->insert_id,
             "date" => date("Y-m-d")
         ], $conn, "history");
-        header("Content-Type: application/json");
         echo json_encode(
             ["message" => "Sukses", 'status' => $result, "filename" => $fileName]
         );

@@ -31,7 +31,11 @@ function deleteHistory($conn, $id)
 
 function getHistory($conn)
 {
-    $data = readDataAllRow($conn, "SELECT *,history.id FROM history join users on users.id = history.users_id");
+
+    $isType = $_GET['is_type'];
+    $usersID = $_GET['users_id'];
+    // print_r("SELECT history.id,stegano_id,date,personal_number,output as embedding_file,original_file,type,name FROM history join users on users.id = history.users_id join stegano on stegano.id=history.stegano_id where users.id=" . $_GET['users_id'] . "AND stegano.type=" . parse_str($isType));
+    $data = readDataAllRow($conn, "SELECT history.id,stegano_id,date,personal_number,output as embedding_file,original_file,type,name FROM history join users on users.id = history.users_id join stegano on stegano.id=history.stegano_id where users.id='$usersID' AND type='$isType'");
     header("Content-Type: application/json");
     return json_encode([
         "data" =>  $data,
