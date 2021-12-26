@@ -121,7 +121,7 @@ switch ($_GET['type']) {
             "date" => date("Y-m-d")
         ], $conn, "history");
         echo json_encode(
-            ["message" => "Sukses", 'status' => $result, "filename" => $fileName]
+            ["message" => "Sukses", 'status' => $result, "filename" => $fileName,"enc_result"=>Passaaa($_POST['secret_message'], "en", $_POST['password'])]
         );
         break;
     case "show":
