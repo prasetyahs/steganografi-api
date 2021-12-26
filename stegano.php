@@ -3,6 +3,7 @@
 include "config/database.php";
 include "crud.php";
 
+
 function binary($data)
 {
     $data =  file_get_contents($data);
