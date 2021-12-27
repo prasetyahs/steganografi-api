@@ -1,8 +1,7 @@
-
 <?php
+
 include "config/database.php";
 include "crud.php";
-
 
 function binary($data)
 {
@@ -14,7 +13,6 @@ function binary($data)
     }
     return $bin;
 }
-
 
 function stringToBinary($secretMessage)
 {
@@ -63,6 +61,7 @@ function showSecretMessage($file)
     }
     return $binSC;
 }
+
 function Passaaa($request, $type, $password)
 {
     $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
@@ -74,7 +73,6 @@ function Passaaa($request, $type, $password)
     }
     return $enc;
 }
-
 //encode
 // $secretMessage = stringToBinary(Passaaa("1+1=2", "en", "google123")."|");
 // $file = binary("uploads/618df28047218050850.mp3");
@@ -82,13 +80,11 @@ function Passaaa($request, $type, $password)
 // $output = binaryToDec($output);
 // $pack = pack("C*", ...$output);
 // file_put_contents("steganofile/a.mp3", $pack);
-
 //decode
 // $file = binary("steganofile/a.mp3");
 // $output = showSecretMessage($file);
 // $output = binaryToString($output);
 // echo Passaaa(explode("|", $output)[0], "dec", "google123");
-
 $uniq = uniqid() . date("hsi");
 switch ($_GET['type']) {
     case "hide":
