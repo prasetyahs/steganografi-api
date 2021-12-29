@@ -31,17 +31,32 @@ include '../config/functions.php';
                         <!-- /.card -->
                         <div class="card">
                             <div class="card-header">
-                                <form action="" method="post" enctype="multipart/form-data">
-                                    <div class="form-group">
-                                        <label for="">Input File Mp3 : </label>
-                                        <input type="file">
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <label for="" name="mp3" id="inputMp3">Input File Mp3 : </label>
+                                    <input type="file">
+                                </div>
                                 <h3 class="card-title">Binary Original File mp3</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                binary output
+                                <div class="card-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>8</td>
+                                        </thead>
+                                        <tbody id="tbody">
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -54,18 +69,33 @@ include '../config/functions.php';
                         <!-- /.card -->
                         <div class="card">
                             <div class="card-header">
-                                <form action="" method="post" enctype="multipart/form-data">
-                                    <div class="form-group">
-                                        <label for="">Input Secret Message : </label>
-                                        <input type="text">
-                                        <label for="" class="text-success">* Enter jika selesai</label>
-                                    </div>
-                                </form>
+                                <label for="">Input Secret Message : </label>
+                                <input type="text">
+                                <label for="" class="text-success">* Enter jika selesai</label>
                                 <h3 class="card-title">Binary Original File MP3 with Secret Message</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                binary output
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>8</td>
+                                    </thead>
+                                    <tbody id="tbody">
+                                        <tr>
+                                            <td>asdÎ</td>
+                                            <td>asdÎ</td>
+                                            <td>asdÎ</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -79,57 +109,11 @@ include '../config/functions.php';
 
         </section>
 
-        <div class="modal fade" id="modalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modal-title">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" method="post">
-                            <div class="form-group row">
-                                <label for="" class="col-sm-2">ID Number</label>
-                                <div class="col-sm-10">
-                                    <input type="text" required name="id_number" id="id_number" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="" class="col-sm-2">Nama</label>
-                                <div class="col-sm-10">
-                                    <input type="text" required name="name" id="name" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="" class="col-sm-2">Role</label>
-                                <div class="col-sm-10">
-                                    <select name="role" id="role" class="form-control">
-                                        <option value="">-- Pilih Role --</option>
-                                        <option value="1">Admin</option>
-                                        <option value="0">User</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="" class="col-sm-2">Password</label>
-                                <div class="col-sm-10">
-                                    <input type="password" id="password" name="password" class="form-control">
-                                </div>
-                            </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="submit" class="btn btn-primary" id="btn_form">Save changes</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
     </div>
 </div>
+
 
 
 <?php
