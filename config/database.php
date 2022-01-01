@@ -1,4 +1,4 @@
 <?php
-$baseUrl = "http://localhost:8888/steganografi-api/";
+$baseUrl = "http://localhost/steganografi/";
 
-$conn =  mysqli_connect('localhost', 'root', 'root', 'stegano');
+$conn =  mysqli_connect('localhost', 'root', '', 'stegano');

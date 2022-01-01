@@ -7,7 +7,6 @@ if ($_SESSION['login'] != true) {
 }
 include '../layout/navbar.php';
 include '../layout/sidebar.php';
-include '../config/functions.php';
 $dataUsers = readDataAllRow($conn, "SELECT * FROM users");
 if (isset($_POST['submit_add'])) {
     addUsers($_POST, $conn);
@@ -142,6 +141,25 @@ if (isset($_POST['submit_update'])) {
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-title">Form Hapus Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Anda yakin ingin menghapus data ?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a id="btn_delete" class="btn btn-primary">Hapus Data</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         
     </div>
 </div>
@@ -169,7 +187,7 @@ if (isset($_POST['submit_update'])) {
     }
 
     function deleteData(id,baseUrl){
-        
+        document.getElementById('btn_delete').href = baseUrl+'dashboard/delete-users.php?id='+id;
     }
 </script>
 

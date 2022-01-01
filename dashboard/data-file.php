@@ -7,7 +7,6 @@ if ($_SESSION['login'] != true) {
 }
 include '../layout/navbar.php';
 include '../layout/sidebar.php';
-include '../config/functions.php';
 $dataFile = readDataAllRow($conn, "SELECT * FROM stegano");
 if (isset($_POST['submit_add'])) {
     addUsers($_POST, $conn);
@@ -68,12 +67,13 @@ if (isset($_POST['submit_update'])) {
                                                 <td><?= $row['type'] ?></td>
                                                 <td>
                                                     <center>
-                                                        <button class="btn btn-success">Download File</button>
+                                                        <a href="<?= $baseUrl ?>dashboard/download-file.php?file_name=<?= $row['original_file'] ?>&type=original" class="btn btn-success">Download File</a>
                                                     </center>
                                                 </td>
                                                 <td>
-
-                                                    <button class="btn btn-primary">Download File</button>
+                                                    <center>
+                                                    <a href="<?= $baseUrl ?>dashboard/download-file.php?file_name=<?= $row['output'] ?>&type=stegano_result" class="btn btn-primary">Download File</a>
+                                                    </center>
                                                 </td>
                                             </tr>
                                         <?php } ?>

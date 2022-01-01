@@ -1,6 +1,6 @@
 <?php 
 
-    $baseUrl = "http://localhost:8888/steganografi-api/";
+    $baseUrl = "http://localhost/steganografi/";
 
     function login($data,$conn){
         global $baseUrl;
@@ -176,6 +176,40 @@
         $_SESSION['type'] = "success";
         $_SESSION['title'] = "Success";
         Redirect($baseUrl . "dashboard/data-users.php");
+    }
+
+    function downloadFile($fileName,$type){
+        global $baseUrl;
+        if($type == 'original'){
+            $file = '../uploads/'.$fileName;
+        }else{
+            $file = '../steganoFile/'.$fileName;
+        }
+
+        // var_dump(file_exists($fileName));die;
+
+        // if(file_exists($file)) {
+
+            //Define header information
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="'.basename($file).'"');
+            header('Content-Length: ' . filesize($file));
+            header('Pragma: public');
+            
+            //Clear system output buffer
+            flush();
+            
+            //Read the size of the file
+            readfile($file,true);
+            
+            //Terminate from the script
+            die();
+        // }
+        // else{
+        //     echo "File path does not exist.";
+        // }
+            
     }
 
     function Redirect($url, $permanent = false){

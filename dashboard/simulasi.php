@@ -6,7 +6,6 @@ if ($_SESSION['login'] != true) {
 }
 include '../layout/navbar.php';
 include '../layout/sidebar.php';
-include '../config/functions.php';
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->

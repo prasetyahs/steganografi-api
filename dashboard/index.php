@@ -7,7 +7,7 @@
     }
     include '../layout/navbar.php';
     include '../layout/sidebar.php';
-    include '../config/functions.php';
+    
     $countEmbedding = readDataAllRow($conn,"SELECT * FROM stegano WHERE type = 'encode'");
     $countExtraction = readDataAllRow($conn,"SELECT * FROM stegano WHERE type = 'decode'");
     $countUsers = readDataAllRow($conn,"SELECT * FROM users");

@@ -1,6 +1,7 @@
 <?php 
-    include "../config/database.php";
     session_start();
+    include '../config/functions.php';
+    include '../config/database.php';
 ?>
 
 <!DOCTYPE html>
