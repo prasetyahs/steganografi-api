@@ -33,6 +33,7 @@ switch ($_GET['type']) {
         $secretMessage = stringToBinary(Passaaa($_POST['secret_message'], "en", $_POST['password']) . "|");
         $file = binary('uploads/' . $fileName);
         $output = embedding($secretMessage, $file);
+        $embedbin = $output;
         $output = binaryToDec($output);
         $pack = pack("C*", ...$output);
         file_put_contents("steganofile/" . $fileName, $pack);
@@ -49,7 +50,15 @@ switch ($_GET['type']) {
             "date" => date("Y-m-d")
         ], $conn, "history");
         echo json_encode(
-            ["message" => "Sukses", 'status' => $result, "filename" => $fileName,"enc_result"=>Passaaa($_POST['secret_message'], "en", $_POST['password'])]
+            [
+                ["message" => "Sukses", 'status' => $result, "filename" => $fileName, "enc_result" => Passaaa($_POST['secret_message'], "en", $_POST['password'])],
+                ["simulasi"=>[
+                    "original_bin" =>$file,
+                    "secret_message"=>$_POST['secret_message'],
+                    "encrypt_message" =>  Passaaa($_POST['secret_message'], "en", $_POST['password']),
+                    "binary_lsb" => $embedbin,
+                ]]
+            ],
         );
         break;
     case "show":
