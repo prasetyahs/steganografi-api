@@ -172,7 +172,6 @@ if (isset($_POST['submit_update'])) {
         document.getElementById('name').value = "";
         document.getElementById('role').value = "";
         $('#btn_form').attr('name', 'submit_add');
-
         document.getElementById('id_number').readOnly = false;
     }
 

@@ -96,8 +96,6 @@
                 "role" => $data['role']
             ];
     
-            
-            
             $insert = create($dataInsers,$conn,'users');
             if(mysqli_affected_rows($conn) == 1){
                 $_SESSION['message'] = "Selamat, akun anda berhasil didaftarkan";

@@ -51,13 +51,13 @@ switch ($_GET['type']) {
         ], $conn, "history");
         echo json_encode(
             [
-                ["message" => "Sukses", 'status' => $result, "filename" => $fileName, "enc_result" => Passaaa($_POST['secret_message'], "en", $_POST['password'])],
-                ["simulasi"=>[
-                    "original_bin" =>$file,
-                    "secret_message"=>$_POST['secret_message'],
+                "message" => "Sukses", 'status' => $result, "filename" => $fileName, "enc_result" => Passaaa($_POST['secret_message'], "en", $_POST['password']),
+                "simulasi" => [
+                    "original_bin" => $file,
+                    "secret_message" => $_POST['secret_message'],
                     "encrypt_message" =>  Passaaa($_POST['secret_message'], "en", $_POST['password']),
                     "binary_lsb" => $embedbin,
-                ]]
+                ]
             ],
         );
         break;
